@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-
+set(libs_DIR ${CMAKE_SOURCE_DIR}/libs)
 
 add_library( native-lib
              SHARED
@@ -12,7 +12,7 @@ find_library( # Sets the name of the path variable.
               log )
 
 add_library( ndk_build_test  SHARED  IMPORTED )
-set_target_properties(ndk_build_test   PROPERTIES IMPORTED_LOCATION  libs/${ANDROID_ABI}/libndk_build_test.so)
+set_target_properties(ndk_build_test   PROPERTIES IMPORTED_LOCATION  ${libs_DIR}/${ANDROID_ABI}/libndk_build_test.so)
 include_directories(libs/include/)
 
 
